@@ -1,4 +1,6 @@
-<h1 *ngFor="let article of paginatedList">{{article.title}}</h1>
+<h1 *ngFor="let article of paginatedList" [routerLink]="['/','article', article.category, article._id, article.title]">
+
+  {{article.title}}</h1>
 <nav class="pagination">
   <button (click)="goToPage('backward')" style="width:45px; height:20px; border:none; font-size:0.8em"><</button>
   <input type="tel" min="1" [(ngModel)]="page" style="width:45px; height:20px; text-align: center" max="{{pageQty}}">

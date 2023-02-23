@@ -12,6 +12,7 @@ export class WriterComponent implements OnInit{
   categoriesSelect = "Zdrowie";
   title:any;
   content:any;
+  themeSelect:any = "casual";
 
 constructor(private articleService:ArticleService) {
 }
@@ -20,7 +21,7 @@ async ngOnInit() {
   console.log(this.categoriesList)
 }
 postArticle(){
-  this.articleService.postArticle({title:this.title, content:this.content, author:'', category:this.categoriesSelect, photos:[], theme:'casual'}).subscribe((res:any)=>{
+  this.articleService.postArticle({title:this.title, content:this.content, author:'', category:this.categoriesSelect, photos:[], theme:this.themeSelect}).subscribe((res:any)=>{
     console.log(res)
   })
 }

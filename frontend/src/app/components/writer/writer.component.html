@@ -1,5 +1,8 @@
 <h3>Templatka:</h3>
-<input type="checkbox">
+<select [(ngModel)]="themeSelect">
+  <option value="casual">Casual</option>
+</select>
+
 <h3>Kategoria</h3>
 <select [(ngModel)]="categoriesSelect">
   <option *ngFor="let cat of this.categoriesList" value="{{cat.name}}" >{{cat.name}}</option>
