@@ -1,0 +1,19 @@
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+label {
+  width: 100%;
+}
+div[class='hover_article']{
+  height: 14px;
+
+  width:0;
+  transition: width 2.5s ease;
+  border-radius:15px;
+}
+label[class='linked']:hover div[class='hover_article'] {
+width:100%;
+}

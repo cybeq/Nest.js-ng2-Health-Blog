@@ -1,14 +1,21 @@
 <h3>Templatka:</h3>
-<select [(ngModel)]="themeSelect">
+<select [(ngModel)]="themeSelect" style="width:100%">
   <option value="casual">Casual</option>
 </select>
 
 <h3>Kategoria</h3>
-<select [(ngModel)]="categoriesSelect">
+<select [(ngModel)]="categoriesSelect" style="width:100%">
   <option *ngFor="let cat of this.categoriesList" value="{{cat.name}}" >{{cat.name}}</option>
 </select>
 <h3>Tytuł:</h3>
-<textarea [(ngModel)]="title" style="font-size: 1.5em; resize: none"></textarea>
+<textarea  [(ngModel)]="title" style="font-size: 1.5em; resize: none; width:100%"></textarea>
 <h3>Treść:</h3>
 <textarea [(ngModel)]="content" style="width:100%; min-height: 400px"></textarea>
+<h3>Zdjecia</h3>
+<input (change)="attachFiles($event)" type="file" name="files" accept="image/jpeg,image/png,image/gif">
+
+<div style="display: inline" *ngFor="let all of images">
+  <p><img class="writer_image" src="{{all}}"></p>
+</div>
+
 <button (click)="postArticle()">Wyslij</button>

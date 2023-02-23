@@ -13,9 +13,10 @@ export class BrowseComponent implements OnInit{
   page:any; cat:any;
   pageQty = 1 ;
   itemsOnPage=5;
-  paginatedList = [{title:'none', category:'Zdrowie', _id:'none'}];
+  paginatedList = [{title:'none', category:'Zdrowie', _id:'none', content:'', theme:'', images:''}];
 
   constructor(private articleService:ArticleService, private route:ActivatedRoute, private router:Router, private tabEmit:TabEmitService) {
+
     this.init()
   }
   init(){
@@ -78,12 +79,19 @@ export class BrowseComponent implements OnInit{
   }
 
   ngOnInit() {
-
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       // @ts-ignore
     ).subscribe((event: NavigationEnd) => {
-        this.init()
+
     });
   }
+
+  getShorterContent(content:string): string{
+      return `${content.slice(0,170)}...`
+  }
+  randColor(){
+    return "#"+String(Math.floor(Math.random()*16777215).toString(16))+"20";
+  }
+
 }

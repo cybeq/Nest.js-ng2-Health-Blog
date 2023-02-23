@@ -9,7 +9,8 @@ export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
   @Post()
-  create(@Body() createArticleDto: CreateArticleDto, @Session() session) {
+  create(@Body() createArticleDto: any, @Session() session) {
+    console.log(createArticleDto)
     createArticleDto.author = session.userId;
     console.log(createArticleDto)
     return this.articlesService.create(createArticleDto);

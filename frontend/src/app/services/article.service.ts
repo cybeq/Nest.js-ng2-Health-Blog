@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Category} from "../interfaces/category.interface";
-import {Article} from "../interfaces/article.interface";
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +14,10 @@ export class ArticleService {
     return categories;
     }
 
-    postArticle(article:Article):any{
-      return this.http.post('/api/articles', article)
+    postArticle(article:any):any{
+
+      return this.http.post('/api/articles', article);
+
     }
 
     getArticleByProps(category:string, id:string, title:string){

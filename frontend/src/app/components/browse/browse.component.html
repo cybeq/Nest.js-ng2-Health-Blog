@@ -1,8 +1,15 @@
-<h1 *ngFor="let article of paginatedList" [routerLink]="['/','article', article.category, article._id, article.title]">
+<div *ngFor="let article of paginatedList">
+  <label class="linked">
+    <a href="/article/{{article.category}}/{{article.theme}}/{{article._id}}/{{article.title}}">
+        <h1  >{{article.title}}</h1>
+        <p>{{getShorterContent(article.content)}}</p>
+    </a>
+    <div class="hover_article" [style]="'background: ' + randColor()"></div>
+  </label>
+</div>
 
-  {{article.title}}</h1>
-<nav class="pagination">
-  <button (click)="goToPage('backward')" style="width:45px; height:20px; border:none; font-size:0.8em"><</button>
-  <input type="tel" min="1" [(ngModel)]="page" style="width:45px; height:20px; text-align: center" max="{{pageQty}}">
-  <button (click)="goToPage('forward')" style="width:45px; height:20px; border:none; font-size:0.8em">></button>
+<nav class="pagination" style="display: flex;justify-content: center">
+  <button (click)="goToPage('backward')" style="color: #00000080;background:#d4af9d;width:45px; height:20px; border:none; font-size:0.8em; border-bottom-left-radius: 5px;border-top-left-radius: 5px"><</button>
+  <input type="tel" min="1" [(ngModel)]="page" style="width:45px; height:20px; text-align: center; border:none; background: #d4af9d30; font-weight: bold; text-decoration: underline" max="{{pageQty}}">
+  <button (click)="goToPage('forward')" style="color: #00000080;background:#efdabb;width:45px; height:20px; border:none; font-size:0.8em; border-bottom-right-radius: 5px;border-top-right-radius: 5px">></button>
 </nav>

@@ -6,5 +6,5 @@ export class CreateArticleDto {
 
     public category : string;
     public content: string;
-    public photos : Object[];
+    public photos : Object;
 }
