@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Session } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import {UserDocument} from "./schemas/user.schema";
 // import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('api/user')
@@ -21,13 +22,15 @@ export class UserController {
   }
 
   @Post('login')
-  async login(@Body() params:any , @Session() session) {
+  async login(@Body() params:UserDocument , @Session() session) {
+    if(!params.name || !params.password)  return {error:'no_auth', authorized:false}
     const user = await this.userService.validate(params);
     if (user.length === 1) {
       session.userId = user[0].id;
       session.userRole = user[0].role;
-      console.log(user)
+      return {user, authorized:user[0].role}
     }
+    return {error:'no_auth', authorized:false}
   }
    @Post('logout')
     logout(@Session() session){

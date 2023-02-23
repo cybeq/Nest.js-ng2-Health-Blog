@@ -11,6 +11,12 @@ name:any
 password:any
   constructor(private readonly userService:UserService) {}
 async login(){
-const res = await this.userService.login({name:this.name, password:this.password})
+const res:any = await this.userService.login({name:this.name, password:this.password})
+if(res.user && res.authorized){
+  console.log('auth')
+  return {auth:true}
+}
+  console.log('unauthorized')
+  return {auth:false}
 }
 }

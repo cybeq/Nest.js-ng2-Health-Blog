@@ -1,16 +1,21 @@
-<nav class="sub_nav" style="width:100%; height:30px; background: #ffc0cb">
+<nav class="sub_nav" style="width:100%; height:30px;">
 
 </nav>
-<header style="padding-inline:10%" >
+<header style="padding-inline:10%;  margin-bottom:30px" >
 
 
   <div style="display: inline; vertical-align: middle">
       <h1 style="display: inline; vertical-align: middle">Pielęgniarka Online</h1>
+    <img src="/assets/images/logo.png" style="margin-left:50px; width:50px; opacity: 0.5">
   </div>
-
-  <nav class="main_nav" style="width:100%;  height:40px;margin-block:30px">
-    <li style=" font-size:1.1em; list-style-type: none;">
-      <ul  *ngFor="let all of categories"  id="cat_{{all.name}}" (mouseenter)='moveTab($event)'  >{{all.name}}</ul>
+</header>
+<div>
+  <img style="width:100%; height: 300px" src="/assets/images/nurse.jpg">
+</div>
+<header style="padding-inline:10%">
+<nav class="main_nav" style="width:100%;  height:40px;margin-block:30px">
+    <li  style=" font-size:1.1em; list-style-type: none;" id="menu_nav">
+      <ul *ngFor="let all of categories"  id="cat_{{all.name}}" [routerLink]="['browse', all.name, 1]" (mouseenter)='moveTab($event)' (mouseout)="moveTabOut($event)" >{{all.name}}</ul>
     </li>
   <div style="
               padding-left:{{movableWidth}}px;
@@ -26,9 +31,9 @@
 
 
   </nav>
-
+  <router-outlet></router-outlet>
 </header>
-<router-outlet></router-outlet>
+
 
 <style>
   ul{

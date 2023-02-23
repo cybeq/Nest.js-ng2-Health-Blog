@@ -1,4 +1,7 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Route, Router} from "@angular/router";
+import {BrowseComponent} from "./components/browse/browse.component";
+import {TabEmitService} from "./services/emitters/tab-emit.service";
 
 @Component({
   selector: 'app-root',
@@ -18,14 +21,18 @@ export class AppComponent{
   movableWidth= 0 ;
   legoWidth = 0;
   legoColor = 'cyan'
-
-
-  tabPositionOnInit(){
-
+  activeTab:any;
+  constructor(private router: Router, private tabEmit: TabEmitService) {
+    this.tabEmit.activeTabEmitter.subscribe(res=>{
+      this.activeTab = res;
+      this.moveTab(null, `cat_${res}`)
+    })
   }
-  moveTab(event: MouseEvent){
-    const id = (event.target as HTMLElement).id;
-    console.log(id)
+  moveTab(event: any, noevent?:any){
+    let id;
+    if(noevent) id = noevent
+    else  id = (event.target as HTMLElement).id;
+
     let distance = 0;
     for(let all of this.categories){
       if(`cat_${all.name}` === id) {
@@ -39,6 +46,8 @@ export class AppComponent{
     this.legoWidth = document.getElementById(id).offsetWidth
 
     this.movableWidth = distance
-    console.log(distance)
+  }
+  moveTabOut(event:any){
+      this.moveTab(null, `cat_${this.activeTab}`)
   }
 }

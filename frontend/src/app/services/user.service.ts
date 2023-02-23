@@ -8,7 +8,7 @@ export class UserService {
 
   constructor(private readonly http:HttpClient) { }
 
-  async login(params: { password: any; name: void }) {
+  async login(params: { password: string; name: string }) {
       return await this.http.post(`/api/user/login`,params).toPromise()
   }
 }
