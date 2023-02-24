@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
+import {Article} from "./schemas/article.schema";
 
 
 @Controller('api/articles')
@@ -28,7 +29,10 @@ export class ArticlesController {
 
 
 
-
+  @Get('/id/:id')
+  async findOne(@Param('id') id:string):Promise<Article> {
+    return this.articlesService.findOne(id).exec();
+  }
   @Get()
   findAll() {
     return this.articlesService.findAll();

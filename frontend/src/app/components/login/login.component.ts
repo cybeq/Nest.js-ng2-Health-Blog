@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {UserService} from "../../services/user.service";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,11 @@ import {UserService} from "../../services/user.service";
 export class LoginComponent {
 name:any
 password:any
-  constructor(private readonly userService:UserService) {}
+  constructor(private readonly userService:UserService, private router:Router) {}
 async login(){
 const res:any = await this.userService.login({name:this.name, password:this.password})
 if(res.user && res.authorized){
-  console.log('auth')
+  this.router.navigate(['/panel/writer'])
   return {auth:true}
 }
   console.log('unauthorized')

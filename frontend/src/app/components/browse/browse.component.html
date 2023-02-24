@@ -1,6 +1,6 @@
 <div *ngFor="let article of paginatedList">
   <label class="linked">
-    <a href="/article/{{article.category}}/{{article.theme}}/{{article._id}}/{{article.title}}">
+    <a href="/article/{{article.category}}/{{article._id}}/{{article.theme}}/{{article.title}}">
         <h1  >{{article.title}}</h1>
         <p>{{getShorterContent(article.content)}}</p>
     </a>

@@ -1,1 +1,2 @@
-<p>article works!</p>
+<app-casual [title]="article.title" [content]="article.content" [photos]="article.photos" [author]="article.author.name"></app-casual>
+{{article.author && article.author.role ? 'Administrator' : ''}}

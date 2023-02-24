@@ -4,8 +4,11 @@ import { CreateArticleDto } from './dto/create-article.dto';
 
 import {Article, ArticleDocument} from "./schemas/article.schema";
 import {InjectModel} from "@nestjs/mongoose";
-import {Model} from "mongoose";
+
 import {Categories, CategoriesDocument} from "./schemas/categories.schema";
+import {Model} from "mongoose";
+
+
 
 @Injectable()
 export class ArticlesService {
@@ -36,7 +39,11 @@ export class ArticlesService {
       select: '-password', // exclude password field
     }).exec();
   }
-
+ findOne(id) {
+   return this.articleModel.findById(id).populate( { path: 'author',
+     select: '-password', // exclude password field
+   });
+  }
   // create(createArticleDto: CreateArticleDto) {
   //   return 'This action adds a new article';
   // }
@@ -56,6 +63,7 @@ export class ArticlesService {
   // remove(id: number) {
   //   return `This action removes a #${id} article`;
   // }
+
 
 
 }

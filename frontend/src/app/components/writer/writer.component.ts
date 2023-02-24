@@ -17,6 +17,7 @@ export class WriterComponent implements OnInit{
   imagesNames:any =[]
   files:any;
   rawFiles:any =[];
+  keywords:any;
 
 constructor(private articleService:ArticleService) {
 }
@@ -26,10 +27,10 @@ async ngOnInit() {
 }
 postArticle(){
   console.log(this.imagesNames)
-  this.articleService.postArticle({title:this.title, content:this.content, author:'', category:this.categoriesSelect, photos:this.imagesNames || null, theme:this.themeSelect}).subscribe((res:any)=>{
+  this.articleService.postArticle({title:this.title, content:this.content, author:'', category:this.categoriesSelect, photos:this.imagesNames || null, theme:this.themeSelect, keywords:this.keywords || null}).subscribe((res:any)=>{
     if(res.createdAt){
-      this.articleService.postImages(this.rawFiles).subscribe((res:any)=>{
-
+      this.articleService.postImages(this.rawFiles, res.photos).subscribe((res:any)=>{
+        console.log(res)
       })
     }
   })

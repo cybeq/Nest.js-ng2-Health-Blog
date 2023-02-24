@@ -21,6 +21,8 @@ export class UserController {
     return this.userService.findAll();
   }
 
+
+
   @Post('login')
   async login(@Body() params:UserDocument , @Session() session) {
     if(!params.name || !params.password)  return {error:'no_auth', authorized:false}

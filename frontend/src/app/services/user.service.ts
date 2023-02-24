@@ -11,4 +11,8 @@ export class UserService {
   async login(params: { password: string; name: string }) {
       return await this.http.post(`/api/user/login`,params).toPromise()
   }
+
+   isLoggedIn() {
+    return this.http.get(`/api/session/log`);
+  }
 }

@@ -1,0 +1,8 @@
+<div class="casual_container">
+
+  <img *ngIf="photos && photos[0]" [src]=" '/api/files/storage/' + photos[0]">
+  <h1>{{title}}</h1>
+  <p style="text-align: justify;">{{content}} </p>
+  <img style="float:right; width:20%; margin: 20px 0 20px 20px;" *ngIf="photos && photos[1]" [src]=" '/api/files/storage/' + photos[1]">
+
+</div>

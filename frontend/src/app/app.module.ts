@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ArticleComponent } from './components/article/article.component';
 import { BrowseComponent } from './components/browse/browse.component';
+import { CasualComponent } from './components/templates/casual/casual.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { BrowseComponent } from './components/browse/browse.component';
     LoginComponent,
     ArticleComponent,
     BrowseComponent,
+    CasualComponent,
 
   ],
     imports: [

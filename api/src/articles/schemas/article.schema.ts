@@ -21,6 +21,8 @@ export class Article {
     content: string;
     @Prop()
     photos: []
+    @Prop()
+    keywords:string;
 
 
 

@@ -20,6 +20,9 @@ export class ArticleService {
       return this.http.post('/api/articles', article);
 
     }
+    getArticle(id:string):any{
+      return this.http.get(`/api/articles/id/${id}`);
+    }
 
     getArticleByProps(category:string, id:string, title:string){
         return this.http.post('/api/articles/read', {category, id, title})
@@ -28,16 +31,17 @@ export class ArticleService {
         return this.http.post('/api/articles/cat', {category:category})
     }
 
-  postImages(images: FileList) {
+  postImages(images: FileList, photos:string[]) {
     let headers = new HttpHeaders();
 
     headers.set('Content-Type', 'multipart/form-data; boundary=3123133');
     headers.set('Accept', "multipart/form-data");
-    let params = new HttpParams();
+
     const formData: FormData = new FormData();
     console.log('imgs', images)
     for (let i = 0; i < Array.from(images).length; i++) {
       formData.append('files', images[i]);
+      formData.append('names', photos[i])
     }
 
 
