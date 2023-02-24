@@ -40,7 +40,6 @@ export class BrowseComponent implements OnInit{
       }
     })
   }
-
   paginate(){
     this.paginatedList = []
       const lastIndex = parseInt(this.page) * this.itemsOnPage;
@@ -83,7 +82,7 @@ export class BrowseComponent implements OnInit{
       filter(event => event instanceof NavigationEnd),
       // @ts-ignore
     ).subscribe((event: NavigationEnd) => {
-
+        this.init()
     });
   }
 

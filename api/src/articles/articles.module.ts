@@ -5,12 +5,14 @@ import {MongooseModule} from "@nestjs/mongoose";
 
 import {Article, ArticleSchema} from "./schemas/article.schema";
 import {Categories, CategoriesSchema} from "./schemas/categories.schema";
+import {NestjsFormDataModule} from "nestjs-form-data";
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Article.name, schema: ArticleSchema },
                                       { name: Categories.name, schema:CategoriesSchema}
                                      ]),
+      NestjsFormDataModule,
   ],
   controllers: [ArticlesController],
   providers: [ArticlesService]

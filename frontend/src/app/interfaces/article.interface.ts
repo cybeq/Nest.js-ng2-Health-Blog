@@ -2,7 +2,7 @@ export interface Article {
   title: string;
   content:string;
   author:string;
-  photos: Object[];
+  photos: string[];
   category: string;
   theme: string;
 }

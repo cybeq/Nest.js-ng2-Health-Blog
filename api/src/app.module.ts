@@ -5,13 +5,18 @@ import { UserModule } from './user/user.module';
 import { MongooseModule } from '@nestjs/mongoose'
 import { ArticlesModule } from './articles/articles.module';
 import {WritterMiddleware} from "./middleware/writer.middleware";
+
 import * as session from 'express-session';
+
+import {FilesController} from "./files/files.controller";
+
 @Module({
   imports: [MongooseModule.forRoot('mongodb://localhost/pielegniarka'),
             UserModule,
             ArticlesModule,
+
           ],
-  controllers: [AppController],
+  controllers: [AppController, FilesController],
   providers: [AppService, WritterMiddleware],
 })
 export class AppModule implements NestModule{

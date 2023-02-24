@@ -19,8 +19,8 @@ export class Article {
 
     @Prop({required:true})
     content: string;
-    @Prop({type:[{type:'Object'}]})
-    photos: Record<string, any>[]
+    @Prop()
+    photos: []
 
 
 
