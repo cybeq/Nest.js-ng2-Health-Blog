@@ -10,7 +10,7 @@ Frontend
 ```
 ng serve --proxy-config proxy.json
 ```
-Api
+Api (proxy set for port 3000)
 ```
 npm run start
 ```
