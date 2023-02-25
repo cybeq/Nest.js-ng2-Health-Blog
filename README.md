@@ -16,6 +16,7 @@ Prepared for SEO
 
 Frontend
 ```
+$ npm i @angular/cli
 $ ng serve --proxy-config proxy.json
 ```
 Api (proxy set for port 3000)
