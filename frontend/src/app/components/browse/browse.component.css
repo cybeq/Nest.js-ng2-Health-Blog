@@ -5,15 +5,18 @@ a {
 
 }
 label {
+  background-color: white;
   width: 100%;
+  transition: width 2.5s ease, border-bottom-width 1s ease, border-left-width 1s ease, border-right-width 1s ease, border-top-width 1s ease;
+  border-radius: 10px;
+  margin-block:15px;
+  border-color: black;
+  box-shadow: 3px 3px 3px #00000010;
+  border:solid black 0;
 }
-div[class='hover_article']{
-  height: 14px;
 
-  width:0;
-  transition: width 2.5s ease;
-  border-radius:15px;
+label[class='linked']:hover  {
+
+  border-bottom-width: 6px;
 }
-label[class='linked']:hover div[class='hover_article'] {
-width:100%;
-}
+

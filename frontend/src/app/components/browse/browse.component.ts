@@ -14,7 +14,8 @@ export class BrowseComponent implements OnInit{
   page:any; cat:any;
   pageQty = 1 ;
   itemsOnPage=5;
-  paginatedList = [{title:'none', category:'Zdrowie', _id:'none', content:'', theme:'', images:''}];
+  paginatedList = [{title:'none', category:'Zdrowie', _id:'none', content:'', theme:'', images:'', photos: undefined
+  }];
 
   constructor(private articleService:ArticleService, private route:ActivatedRoute, private router:Router, private tabEmit:TabEmitService,
               private titleService: Title, private meta:Meta) {
@@ -92,9 +93,7 @@ export class BrowseComponent implements OnInit{
   getShorterContent(content:string): string{
       return `${content.slice(0,170)}...`
   }
-  randColor(){
-    return "#"+String(Math.floor(Math.random()*16777215).toString(16))+"20";
-  }
+
   private setMeta(){
     this.titleService.setTitle(`Porady - ${this.cat} - Pielegniarka Online`);
     switch(this.cat){

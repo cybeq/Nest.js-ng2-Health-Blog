@@ -1,10 +1,11 @@
 <div *ngFor="let article of paginatedList">
-  <label class="linked">
+  <label class="linked" style="padding:15px">
     <a href="/article/{{article.category}}/{{article._id}}/{{article.theme}}/{{article.title}}">
+      <img *ngIf="article.photos && article.photos[0]" style="float:right; width:100px; height:100px; border-radius: 20px"  [src]=" '/api/files/storage/' + article.photos[0]">
         <h1  >{{article.title}}</h1>
         <p>{{getShorterContent(article.content)}}</p>
     </a>
-    <div class="hover_article" [style]="'background: ' + randColor()"></div>
+
   </label>
 </div>
 

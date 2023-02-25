@@ -11,7 +11,7 @@ import {filter} from "rxjs/operators";
 })
 export class AppComponent{
   title = 'frontend';
-  categories = [{name:'Zdrowie', color:'cyan'},
+  categories = [{name:'Zdrowie', color:'#13a538'},
     {name:'Choroby', color:'black'},
     {name:'Leki', color:'green'},
     {name:'Ciąża i dziecko', color:'yellow'},
@@ -21,7 +21,7 @@ export class AppComponent{
     {name:'Medycyna estetyczna', color:'orange'}]
   movableWidth= 0 ;
   legoWidth = 0;
-  legoColor = 'cyan'
+  legoColor = '#13a538'
   activeTab:any;
   constructor(private router: Router, private tabEmit: TabEmitService) {
 

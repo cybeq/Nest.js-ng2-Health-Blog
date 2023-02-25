@@ -1,17 +1,16 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Session } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
 import {UserDocument} from "./schemas/user.schema";
-// import { UpdateUserDto } from './dto/update-user.dto';
+
 
 @Controller('api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
+  // @Post()
+  // create(@Body() createUserDto: CreateUserDto) {
+  //   return this.userService.create(createUserDto);
+  // }
   @Get(':id')
   findById(@Param('id') id: string) {
     return this.userService.findById(id);
